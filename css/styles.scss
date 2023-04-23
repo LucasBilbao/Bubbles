@@ -1,0 +1,155 @@
+$bubble-size: 250px;
+
+$first-inset-layer: 6%;
+$second-inset-layer: 12%;
+$pink: rgb(233, 99, 233);
+$purple: rgb(118, 52, 224);
+$blue: #0fb4ff;
+$yellow: #ffeb3b;
+$red: #ff4484;
+
+$blurs: (
+  1: (
+    $first-inset-layer,
+    right,
+    $purple,
+  ),
+  2: (
+    $first-inset-layer,
+    bottom,
+    white,
+  ),
+  3: (
+    $second-inset-layer,
+    left,
+    $red,
+  ),
+  4: (
+    $first-inset-layer,
+    left,
+    $pink,
+  ),
+  5: (
+    $first-inset-layer,
+    top,
+    $blue,
+  ),
+  6: (
+    $second-inset-layer,
+    top,
+    $yellow,
+  ),
+);
+
+@mixin bubbleBlur($inset, $border-position, $color) {
+  inset: $inset;
+  border-#{$border-position}: 15px solid $color;
+  filter: blur(8px);
+}
+
+@mixin circlify {
+  border-radius: 50%;
+}
+
+@mixin lightCircle($size, $top, $left) {
+  position: absolute;
+  width: $size;
+  height: $size;
+  top: $top;
+  left: $top;
+  background: white;
+  @include circlify();
+  z-index: 2;
+  filter: blur(2px);
+}
+
+@function randomNumFromTo($min, $max) {
+  $rand: random();
+  $randomNum: $min + $rand * (($max - $min));
+
+  @return $randomNum;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+
+  overflow: hidden;
+
+  background: rgba(128, 128, 128, 0.288);
+}
+
+.bubble {
+  position: absolute;
+  width: $bubble-size;
+  height: $bubble-size;
+  @include circlify();
+
+  zoom: 1;
+  transform: translateY(3000px);
+
+  box-shadow: 0 0 25px #ffffff65 inset;
+
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}) {
+      zoom: randomNumFromTo(0.4, 1);
+
+      left: randomNumFromTo(0, 90) * 1rem;
+
+      animation: bubble-up #{randomNumFromTo(3, 6)}s linear 2s forwards;
+    }
+  }
+
+  &::before {
+    content: '';
+    @include lightCircle(30px, 50px, 45px);
+  }
+
+  &::after {
+    content: '';
+    @include lightCircle(20px, 80px, 80px);
+  }
+
+  span {
+    position: absolute;
+    @include circlify();
+    @each $blur-i, $blur in $blurs {
+      &:nth-child(#{$blur-i}) {
+        @include bubbleBlur($blur...);
+      }
+    }
+  }
+}
+
+.foam {
+  position: absolute;
+  width: 100%;
+  height: 335px;
+  background: url(../images/bubble-foam.png) repeat-x;
+  bottom: 0;
+  animation: resurface 2s ease-out 0s 1;
+}
+
+@keyframes bubble-up {
+  from {
+    transform: translateY(3000px);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
+@keyframes resurface {
+  from {
+    transform: translateY(500px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
