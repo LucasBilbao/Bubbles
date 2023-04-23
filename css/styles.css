@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: rgba(128, 128, 128, 0.288);
+}
+
+.bubble {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  zoom: 1;
+  transform: translateY(3000px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3960784314) inset;
+}
+.bubble:nth-child(1) {
+  zoom: 0.8367759059;
+  left: 0.6661443504rem;
+  animation: bubble-up 4.4290304514s linear 2s forwards;
+}
+.bubble:nth-child(2) {
+  zoom: 0.4062602167;
+  left: 54.3887214603rem;
+  animation: bubble-up 4.8035151986s linear 2s forwards;
+}
+.bubble:nth-child(3) {
+  zoom: 0.4304904439;
+  left: 47.6652518076rem;
+  animation: bubble-up 3.8255191328s linear 2s forwards;
+}
+.bubble:nth-child(4) {
+  zoom: 0.7651704887;
+  left: 47.8142831535rem;
+  animation: bubble-up 3.2858948871s linear 2s forwards;
+}
+.bubble:nth-child(5) {
+  zoom: 0.7600766101;
+  left: 0.5151116021rem;
+  animation: bubble-up 5.733290593s linear 2s forwards;
+}
+.bubble:nth-child(6) {
+  zoom: 0.9706795535;
+  left: 86.6509647849rem;
+  animation: bubble-up 3.7723521957s linear 2s forwards;
+}
+.bubble:nth-child(7) {
+  zoom: 0.4849940348;
+  left: 72.7025451779rem;
+  animation: bubble-up 3.8251578839s linear 2s forwards;
+}
+.bubble:nth-child(8) {
+  zoom: 0.8232283609;
+  left: 52.3280330176rem;
+  animation: bubble-up 5.3641980579s linear 2s forwards;
+}
+.bubble:nth-child(9) {
+  zoom: 0.7732108224;
+  left: 42.0129091476rem;
+  animation: bubble-up 4.2618899038s linear 2s forwards;
+}
+.bubble:nth-child(10) {
+  zoom: 0.5856595968;
+  left: 9.695492865rem;
+  animation: bubble-up 3.4415740162s linear 2s forwards;
+}
+.bubble:nth-child(11) {
+  zoom: 0.559738805;
+  left: 57.8862229934rem;
+  animation: bubble-up 3.7241520397s linear 2s forwards;
+}
+.bubble:nth-child(12) {
+  zoom: 0.4218853793;
+  left: 68.8258146501rem;
+  animation: bubble-up 4.7834631167s linear 2s forwards;
+}
+.bubble:nth-child(13) {
+  zoom: 0.6389449289;
+  left: 3.9024792906rem;
+  animation: bubble-up 4.5347857197s linear 2s forwards;
+}
+.bubble:nth-child(14) {
+  zoom: 0.9874447736;
+  left: 89.8614743545rem;
+  animation: bubble-up 3.1732696462s linear 2s forwards;
+}
+.bubble:nth-child(15) {
+  zoom: 0.8087252498;
+  left: 46.7999349218rem;
+  animation: bubble-up 4.4925117476s linear 2s forwards;
+}
+.bubble:nth-child(16) {
+  zoom: 0.8814820041;
+  left: 50.3130889183rem;
+  animation: bubble-up 3.9060420009s linear 2s forwards;
+}
+.bubble:nth-child(17) {
+  zoom: 0.9761818952;
+  left: 14.3239403216rem;
+  animation: bubble-up 5.8746979798s linear 2s forwards;
+}
+.bubble:nth-child(18) {
+  zoom: 0.7003962825;
+  left: 85.541517938rem;
+  animation: bubble-up 5.5846991613s linear 2s forwards;
+}
+.bubble:nth-child(19) {
+  zoom: 0.4482538759;
+  left: 3.5576469336rem;
+  animation: bubble-up 5.4548452421s linear 2s forwards;
+}
+.bubble:nth-child(20) {
+  zoom: 0.8049261764;
+  left: 42.567470265rem;
+  animation: bubble-up 4.7247005501s linear 2s forwards;
+}
+.bubble::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 50px;
+  left: 50px;
+  background: white;
+  border-radius: 50%;
+  z-index: 2;
+  filter: blur(2px);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 80px;
+  left: 80px;
+  background: white;
+  border-radius: 50%;
+  z-index: 2;
+  filter: blur(2px);
+}
+.bubble span {
+  position: absolute;
+  border-radius: 50%;
+}
+.bubble span:nth-child(1) {
+  inset: 6%;
+  border-right: 15px solid rgb(118, 52, 224);
+  filter: blur(8px);
+}
+.bubble span:nth-child(2) {
+  inset: 6%;
+  border-bottom: 15px solid white;
+  filter: blur(8px);
+}
+.bubble span:nth-child(3) {
+  inset: 12%;
+  border-left: 15px solid #ff4484;
+  filter: blur(8px);
+}
+.bubble span:nth-child(4) {
+  inset: 6%;
+  border-left: 15px solid rgb(233, 99, 233);
+  filter: blur(8px);
+}
+.bubble span:nth-child(5) {
+  inset: 6%;
+  border-top: 15px solid #0fb4ff;
+  filter: blur(8px);
+}
+.bubble span:nth-child(6) {
+  inset: 12%;
+  border-top: 15px solid #ffeb3b;
+  filter: blur(8px);
+}
+
+.foam {
+  position: absolute;
+  width: 100%;
+  height: 335px;
+  background: url(../images/bubble-foam.png) repeat-x;
+  bottom: 0;
+  animation: resurface 2s ease-out 0s 1;
+}
+
+@keyframes bubble-up {
+  from {
+    transform: translateY(3000px);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+@keyframes resurface {
+  from {
+    transform: translateY(500px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}/*# sourceMappingURL=styles.css.map */
